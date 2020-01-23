@@ -1,6 +1,6 @@
-import app from './app';
-
+import app from '.';
 
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, () => console.log(`Example app listening on ${PORT}`))
+// listen to port
+app.listen(PORT, () => console.log(`App listening on ${PORT}`));
