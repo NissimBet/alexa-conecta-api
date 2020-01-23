@@ -1,3 +1,4 @@
-import { GroupFunctions } from './Group';
+import { GroupFunctions } from './group';
+import { ProgramFunctions } from './programs';
 
-export { GroupFunctions };
+export { GroupFunctions, ProgramFunctions };

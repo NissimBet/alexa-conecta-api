@@ -7,6 +7,7 @@ import mongo from 'connect-mongo';
 
 import { MONGODB_URI, SESSION_SECRET } from './utils/secrets';
 import { GetAllGroups, GetGroupByName } from './controllers/';
+import { GetAllPrograms, GetProgramByName } from './controllers/programController';
 
 const app = express();
 
@@ -42,5 +43,8 @@ app.get('/', (_, res) => {
 
 app.get('/api/groups/all', GetAllGroups);
 app.get('/api/group/name/:name', GetGroupByName);
+
+app.get('/api/programs/all', GetAllPrograms);
+app.get('/api/program/name/:name', GetProgramByName);
 
 export default app;
