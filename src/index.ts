@@ -42,9 +42,9 @@ app.get('/', (_, res) => {
 });
 
 app.get('/api/groups/all', GetAllGroups);
-app.get('/api/group/name/:name', GetGroupByName);
+app.get('/api/group/name', GetGroupByName);
 
 app.get('/api/programs/all', GetAllPrograms);
-app.get('/api/program/name/:name', GetProgramByName);
+app.get('/api/program/name', GetProgramByName);
 
 export default app;
