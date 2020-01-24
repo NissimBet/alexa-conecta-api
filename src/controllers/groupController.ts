@@ -10,7 +10,7 @@ export const GetAllGroups: RequestHandler = async (_, res) => {
 
 export const GetGroupByName: RequestHandler = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name } = req.query;
     const group = await GroupFunctions.getByName(name);
     res.status(200).json(group);
   } catch (error) {

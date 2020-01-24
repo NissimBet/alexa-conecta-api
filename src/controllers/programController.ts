@@ -10,7 +10,7 @@ export const GetAllPrograms: RequestHandler = async (_, res) => {
 
 export const GetProgramByName: RequestHandler = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name } = req.query;
     const group = await ProgramFunctions.getByName(name);
     res.status(200).json(group);
   } catch (error) {
