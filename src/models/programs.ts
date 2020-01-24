@@ -5,7 +5,7 @@ const ProgramSchema = new Schema({
   description: String,
 });
 
-const Program = mongoose.model('programa', ProgramSchema);
+const Program = mongoose.model('programas', ProgramSchema);
 
 export const ProgramFunctions = {
   getAll: async () => {
@@ -18,6 +18,7 @@ export const ProgramFunctions = {
   },
   getByName: async (name: string) => {
     try {
+      console.log(name);
       const programData = await Program.findOne({ name: name });
       return programData;
     } catch (error) {

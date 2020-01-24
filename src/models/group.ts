@@ -1,27 +1,13 @@
 import mongoose, { Schema } from 'mongoose';
 
 mongoose.Promise = global.Promise;
-/* 
-export type GroupDocument = mongoose.Document & {
-  name: String;
-  category: Category;
-};
 
-type SubCategory = {
-  name: String;
-};
-
-type Category = {
-  name: String;
-  subcategories: SubCategory[];
-};
- */
 const GroupSchema = new Schema({
   name: { type: String, required: true },
-  //category: Object,
+  description: { type: String },
+  members: { type: [String] },
 });
 
-// const Group = mongoose.model<GroupDocument>('Group', GroupSchema);
 const Group = mongoose.model('grupos', GroupSchema);
 
 export const GroupFunctions = {
