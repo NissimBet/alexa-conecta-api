@@ -17,8 +17,8 @@ export const ProgramFunctions = {
     }
   },
   getByName: async (name: string) => {
+    name.replace('%20', ' ');
     try {
-      console.log(name);
       const programData = await Program.findOne({ name: name });
       return programData;
     } catch (error) {
