@@ -9,7 +9,7 @@ const ProjectSchema = new Schema({
   currentStage: { type: String },
 });
 
-const Project = mongoose.model('projects', ProjectSchema);
+const Project = mongoose.model('proyects', ProjectSchema);
 
 export const ProjectFunctions = {
   getAll: async () => {
@@ -32,6 +32,8 @@ export const ProjectFunctions = {
     try {
       const projects = await Project.find({ currentStage: stage });
       return projects;
-    } catch (error) {}
+    } catch (error) {
+      throw Error(error);
+    }
   },
 };
