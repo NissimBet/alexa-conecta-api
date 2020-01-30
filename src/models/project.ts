@@ -9,7 +9,7 @@ const ProjectSchema = new Schema({
   currentStage: { type: String },
 });
 
-const Project = mongoose.model('proyects', ProjectSchema);
+const Project = mongoose.model('proyectos', ProjectSchema);
 
 export const ProjectFunctions = {
   getAll: async () => {
