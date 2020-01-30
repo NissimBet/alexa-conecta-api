@@ -1,3 +1,3 @@
-import { GetAllGroups, GetGroupByName } from './groupController';
+import { GetAllProjects, GetProjectByName } from './projectController';
 
-export { GetAllGroups, GetGroupByName };
+export { GetAllProjects, GetProjectByName };

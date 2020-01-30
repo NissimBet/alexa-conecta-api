@@ -6,8 +6,9 @@ import session from 'express-session';
 import mongo from 'connect-mongo';
 
 import { MONGODB_URI, SESSION_SECRET } from './utils/secrets';
-import { GetAllGroups, GetGroupByName } from './controllers/';
+import { GetProjectByName, GetAllProjects } from './controllers/';
 import { GetAllPrograms, GetProgramByName } from './controllers/programController';
+import { GetProjectsByStage } from './controllers/projectController';
 
 const app = express();
 
@@ -41,8 +42,9 @@ app.get('/', (_, res) => {
   res.status(200).send('Hi');
 });
 
-app.get('/api/groups/all', GetAllGroups);
-app.get('/api/group/name', GetGroupByName);
+app.get('/api/projects/all', GetAllProjects);
+app.get('/api/project/name', GetProjectByName);
+app.get('/api/project/stage', GetProjectsByStage);
 
 app.get('/api/programs/all', GetAllPrograms);
 app.get('/api/program/name', GetProgramByName);

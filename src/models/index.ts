@@ -1,4 +1,4 @@
-import { GroupFunctions } from './group';
+import { ProjectFunctions } from './project';
 import { ProgramFunctions } from './programs';
 
-export { GroupFunctions, ProgramFunctions };
+export { ProjectFunctions, ProgramFunctions };
