@@ -21,7 +21,9 @@ export const GetProjectByName: RequestHandler = async (req, res) => {
 export const GetProjectsByStage: RequestHandler = async (req, res) => {
   try {
     const { stage } = req.query;
-    const projects = await ProjectFunctions.getByStage(stage);
+    const projects = await ProjectFunctions.getByStage(
+      stage.charAt(0).toUpperCase() + stage.slice(1)
+    );
     res.status(200).json(projects);
   } catch (error) {}
 };
