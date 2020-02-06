@@ -11,7 +11,7 @@ export const GetAllProjects: RequestHandler = async (_, res) => {
 export const GetProjectByName: RequestHandler = async (req, res) => {
   try {
     const { name } = req.query;
-    const project = await ProjectFunctions.getByName(name.charAt(0).toUpperCase() + name.slice(1));
+    const project = await ProjectFunctions.getByName(name);
     res.status(200).json(project);
   } catch (error) {
     res.status(404).send('Not found');
@@ -21,9 +21,7 @@ export const GetProjectByName: RequestHandler = async (req, res) => {
 export const GetProjectsByStage: RequestHandler = async (req, res) => {
   try {
     const { stage } = req.query;
-    const projects = await ProjectFunctions.getByStage(
-      stage.charAt(0).toUpperCase() + stage.slice(1)
-    );
+    const projects = await ProjectFunctions.getByStage(stage);
     res.status(200).json(projects);
   } catch (error) {}
 };
