@@ -11,7 +11,7 @@ export const GetAllProjects: RequestHandler = async (_, res) => {
 export const GetProjectByName: RequestHandler = async (req, res) => {
   try {
     const { name } = req.query;
-    const project = await ProjectFunctions.getByName(name.charAt(0).toUppercase() + name.slice(1));
+    const project = await ProjectFunctions.getByName(name.charAt(0).toUpperCase() + name.slice(1));
     res.status(200).json(project);
   } catch (error) {
     res.status(404).send('Not found');
