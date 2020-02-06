@@ -7,6 +7,7 @@ const ProjectSchema = new Schema({
   description: { type: String },
   members: { type: [String] },
   currentStage: { type: String },
+  lowercase_name: { type: String },
 });
 
 const Project = mongoose.model('proyectos', ProjectSchema);
@@ -22,7 +23,7 @@ export const ProjectFunctions = {
   },
   getByName: async (name: string) => {
     try {
-      const projectData = await Project.find({ name: name });
+      const projectData = await Project.findOne({ name: name });
       return projectData;
     } catch (error) {
       throw Error(error);
