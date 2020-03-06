@@ -32,7 +32,7 @@ export const getFaq: RequestHandler = async (req, res) => {
   try {
     const { id } = req.query;
     if (id) {
-      const faq = await FaqsFunctions.getById(Number(id));
+      const faq = await FaqsFunctions.getById(id);
       return res.status(200).json(faq);
     }
   } catch (error) {
