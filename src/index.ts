@@ -6,9 +6,13 @@ import session from 'express-session';
 import mongo from 'connect-mongo';
 
 import { MONGODB_URI, SESSION_SECRET } from './utils/secrets';
-import { GetProjectByName, GetAllProjects } from './controllers/';
+import {
+  GetProjectByName,
+  GetAllProjects,
+  GetProjectsByStage,
+} from './controllers/projectController';
 import { GetAllPrograms, GetProgramByName } from './controllers/programController';
-import { GetProjectsByStage } from './controllers/projectController';
+import { GetAllFaqs, GetFaqByQuestion, getFaq } from './controllers/faqController';
 
 const app = express();
 
@@ -48,5 +52,8 @@ app.get('/api/project/stage', GetProjectsByStage);
 
 app.get('/api/programs/all', GetAllPrograms);
 app.get('/api/program/name', GetProgramByName);
+
+app.get('/api/faqs/all', GetAllFaqs);
+app.get('/api/faqs/one', getFaq);
 
 export default app;
