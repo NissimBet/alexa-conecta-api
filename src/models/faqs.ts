@@ -4,6 +4,7 @@ const FAQSchema = new Schema({
   nombre: String,
   pregunta: String,
   respuesta: String,
+  id: Number,
 });
 
 const FAQ = mongoose.model('faqs', FAQSchema);
@@ -28,6 +29,14 @@ export const FaqsFunctions = {
   getByQuestion: async (question: string) => {
     try {
       const faq = await FAQ.findOne({ pregunta: question });
+      return faq;
+    } catch (error) {
+      throw Error(error);
+    }
+  },
+  getById: async (id: number) => {
+    try {
+      const faq = await FAQ.find({ id: id });
       return faq;
     } catch (error) {
       throw Error(error);

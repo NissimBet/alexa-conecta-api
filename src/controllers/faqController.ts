@@ -30,14 +30,9 @@ export const GetFaqByQuestion: RequestHandler = async (req, res) => {
 
 export const getFaq: RequestHandler = async (req, res) => {
   try {
-    const { nombre, pregunta } = req.query;
-    if (nombre) {
-      const faq = await FaqsFunctions.getByName(nombre);
-      return res.status(200).json(faq);
-    }
-    if (pregunta) {
-      const faq = await FaqsFunctions.getByQuestion(pregunta);
-
+    const { id } = req.query;
+    if (id) {
+      const faq = await FaqsFunctions.getById(Number(id));
       return res.status(200).json(faq);
     }
   } catch (error) {
